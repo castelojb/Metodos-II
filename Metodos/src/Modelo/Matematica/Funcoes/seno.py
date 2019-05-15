@@ -1,5 +1,5 @@
 from funcao import Funcao
-from cmath import sin
+from math import sin
 
 
 class Seno(Funcao):

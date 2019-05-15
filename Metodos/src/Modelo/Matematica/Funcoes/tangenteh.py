@@ -1,11 +1,11 @@
 from funcao import Funcao
-from math import cos
+from math import tanh
 
 
-class Cosseno(Funcao):
+class TangenteH(Funcao):
 
     def __init__(self, subclass):
         self.subclass = subclass
 
     def calcula(self, valor):
-        return cos(self.subclass.calcula(valor))
+        return tanh(self.subclass.calcula(valor))
