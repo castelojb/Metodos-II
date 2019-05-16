@@ -17,7 +17,7 @@ class GaussLegendre(Integral):
 
         elif self.__grau == 2:
 
-            print(((xf-xi)/2) * (f.calcula(1/sqrt(3)) + f.calcula(-1/sqrt(3))))
+            print((f.calcula(1/sqrt(3)) + f.calcula(-1/sqrt(3))))
 
             return ((xf-xi)/2) * (f.calcula(1/sqrt(3)) + f.calcula(-1/sqrt(3)))
 

@@ -6,12 +6,12 @@ from Metodos.src.Modelo.Matematica.Funcoes.seno import Seno
 from Metodos.src.Modelo.Matematica.Funcoes.folha import Folha
 from Metodos.src.Modelo.Matematica.Funcoes.cosseno import Cosseno
 from Metodos.src.Modelo.Matematica.Funcoes.polinomio import Polinomio
-
+from math import sqrt
 
 class TestSubdivideECalculadora(TestCase):
     def test_subdivideECalculadora(self):
 
-        print(GaussLegendre(1).calcular((Folha()), 0, 1))
+        print(GaussLegendre(3).calcular(Seno(Folha()), 0, 1))
 
         print(subdivideECalculadora(GaussLegendre(2), Cosseno(Folha()), 0.001, 0, 1).getResultado())
 
