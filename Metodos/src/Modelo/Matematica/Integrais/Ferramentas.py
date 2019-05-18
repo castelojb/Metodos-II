@@ -1,18 +1,37 @@
-import numpy as np
+from numpy import sum
 from relatorio import RelatorioIntegral
 
+"""
+Conjunto de funcoes que vao auxiliar no calculo de uma integral
+"""
 
-def subdivideECalculadora(integral, funcao, erro, xi, xf):
+"""
+Funcao que particiona a integral e vai claculando seu valor ate satizfazer o erro ou atingir o numero de iteracoes maximo
+@:param integral: o objeto integral que sera aplicado
+@:param funcao: a funcao que sera aplicada
+@:param erro: o criterio se parada que sera avaliado
+@:param xi: X inicial
+@:param xf: X final
+@:param itMax: numero maximo de iteracoes
+@:return: uma classe de Realatorio
+"""
+
+
+def subdivideECalculadora(integral, funcao, erro, xi, xf, itMax=300):
 
     numeroDeParticoes = 1
+    integralAnterior = 0
+    iteracoes = 0
 
-    errop = 0
+    numeroDeParticoesRelatorio = []
+    integralAnteriorRelatorio = []
+    integralAtualRelatorio = []
+    erroRelatorio = []
+    continuaRelatorio = []
 
     while True:
 
-        numeroDeParticoes = numeroDeParticoes *2
-
-        etapas = []
+        integralAtual = []
 
         h = (xf - xi)/numeroDeParticoes
 
@@ -21,18 +40,32 @@ def subdivideECalculadora(integral, funcao, erro, xi, xf):
             xip = xi + h*i
             xfp = xi + h*(i+1)
 
-            etapas.append(integral.calcular(funcao, xip, xfp))
+            integralAtual.append(integral.calcular(funcao, xip, xfp))
 
-        if abs(np.sum(etapas) - errop) < abs(erro):
+        resultadoIntegralAtual = sum(integralAtual)
+        erroAtual = abs(resultadoIntegralAtual - integralAnterior)
+
+        numeroDeParticoesRelatorio.append(numeroDeParticoes)
+        integralAnteriorRelatorio.append(integralAnterior)
+        integralAtualRelatorio.append(resultadoIntegralAtual)
+        erroRelatorio.append(erroAtual)
+
+        if erroAtual < abs(erro) or iteracoes == itMax:
+            resultado = resultadoIntegralAtual
+            continuaRelatorio.append(False)
             break
 
-        errop = np.sum(etapas)
+        integralAnterior = resultadoIntegralAtual
+        numeroDeParticoes = numeroDeParticoes * 2
+        continuaRelatorio.append(True)
+        iteracoes += 1
 
-    resp = RelatorioIntegral()
-
-    resp.setResultado(np.sum(etapas))
-    resp.setResultadosIndividuaisIntegral(etapas)
-
-    return resp
+    retorno = RelatorioIntegral(resultado,
+                                numeroDeParticoesRelatorio,
+                                integralAnteriorRelatorio,
+                                integralAtualRelatorio,
+                                erroRelatorio,
+                                continuaRelatorio)
+    return retorno
 
 

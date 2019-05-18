@@ -1,26 +1,34 @@
-import numpy as np
+import pandas as pd
+
+
+"""
+Classe auxiliar para gerar um relatorio do calculo sequencial de uma integral
+"""
 
 
 class RelatorioIntegral:
 
-    def __init__(self):
-        self.__resultado = 0
-        self.__resultadosIndividuaisIntegral = []
+    def __init__(self, resultado, numeroDeParticoes, integralAnterior, integralAtual, erro, continua):
+        self.resultado = resultado
+        self.numeroDeParticoes = numeroDeParticoes
+        self.integralAnterior = integralAnterior
+        self.integralAtual = integralAtual
+        self.erro = erro
+        self.continua = continua
 
-    def setResultado(self, valor):
-        self.__resultado = valor
+        obj = {"nPart": self.numeroDeParticoes,
+               "Iant": self.integralAnterior,
+               "Iatual": self.integralAtual,
+               "Erro": self.erro,
+               "Continua": self.continua}
 
-    def getResultado(self):
-        return self.__resultado
+        self.dataFrame = pd.DataFrame(data=obj)
 
-    def appendEtapa(self, valor):
-        self.__resultadosIndividuaisIntegral.append(valor)
+    def __str__(self):
+        return self.dataFrame.__str__()
 
-    def getResultadosIndividuaisIntegral(self):
-        return self.__resultadosIndividuaisIntegral
-
-    def setResultadosIndividuaisIntegral(self, resultadosArray):
-        self.__resultadosIndividuaisIntegral = resultadosArray
+    def getDataFrame(self):
+        return self.dataFrame
 
 
 
