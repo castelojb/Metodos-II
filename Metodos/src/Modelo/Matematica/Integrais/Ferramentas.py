@@ -50,7 +50,7 @@ def subdivideECalculadora(integral, funcao, erro, xi, xf, itMax=300):
         integralAtualRelatorio.append(resultadoIntegralAtual)
         erroRelatorio.append(erroAtual)
 
-        if erroAtual < abs(erro) or iteracoes == itMax:
+        if erroAtual < abs(erro) or (iteracoes == itMax):
             resultado = resultadoIntegralAtual
             continuaRelatorio.append(False)
             break
