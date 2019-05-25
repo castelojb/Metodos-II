@@ -15,5 +15,5 @@ class Funcao(abc.ABC):
     """
 
     @abc.abstractmethod
-    def calcula(self, valor):
+    def __call__(self, valor):
         pass

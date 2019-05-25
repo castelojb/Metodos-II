@@ -40,7 +40,7 @@ def subdivideECalculadora(integral, funcao, erro, xi, xf, itMax=300):
             xip = xi + h*i
             xfp = xi + h*(i+1)
 
-            integralAtual.append(integral.calcular(funcao, xip, xfp))
+            integralAtual.append(integral(funcao, xip, xfp))
 
         resultadoIntegralAtual = sum(integralAtual)
         erroAtual = abs(resultadoIntegralAtual - integralAnterior)

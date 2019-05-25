@@ -14,8 +14,8 @@ class Potencia(Funcao):
     def __str__(self):
         return " ("+self.expressao+")^"+self.expoente+" "
 
-    def calcula(self, valor):
-        return pow(self.expressao, self.expoente)
+    def __call__(self, valor):
+        return pow(self.expressao(valor), self.expoente)
 
 
 class Raiz(Funcao):
@@ -26,5 +26,5 @@ class Raiz(Funcao):
     def __str__(self):
         return " (" + self.expressao + ")^1/" + self.expoente+" "
 
-    def calcula(self, valor):
-        return pow(self.expressao, 1/self.expoente)
+    def __call__(self, valor):
+        return pow(self.expressao(valor), 1/self.expoente)

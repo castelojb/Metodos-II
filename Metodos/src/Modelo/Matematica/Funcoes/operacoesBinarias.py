@@ -14,8 +14,8 @@ class Soma(Funcao):
     def __str__(self):
         return " ("+self.exp1+" + "+self.exp2+") "
 
-    def calcula(self, valor):
-        return self.exp1.calcula(valor) + self.exp2.calcula(valor)
+    def __call__(self, valor):
+        return self.exp1(valor) + self.exp2(valor)
 
 
 class Subtracao(Funcao):
@@ -27,8 +27,8 @@ class Subtracao(Funcao):
     def __str__(self):
         return " ("+self.exp1+" - "+self.exp2+") "
 
-    def calcula(self, valor):
-        return self.exp1.calcula(valor) - self.exp2.calcula(valor)
+    def __call__(self, valor):
+        return self.exp1(valor) - self.exp2(valor)
 
 
 class Multiplicacao(Funcao):
@@ -40,8 +40,8 @@ class Multiplicacao(Funcao):
     def __str__(self):
         return " ("+self.exp1+" * "+self.exp2+") "
 
-    def calcula(self, valor):
-        return self.exp1.calcula(valor) * self.exp2.calcula(valor)
+    def __call__(self, valor):
+        return self.exp1(valor) * self.exp2(valor)
 
 
 class Divisao(Funcao):
@@ -53,7 +53,7 @@ class Divisao(Funcao):
     def __str__(self):
         return " ("+self.exp1+" / "+self.exp2+") "
 
-    def calcula(self, valor):
-        return self.exp1.calcula(valor) / self.exp2.calcula(valor)
+    def __call__(self, valor):
+        return self.exp1(valor) / self.exp2(valor)
 
 

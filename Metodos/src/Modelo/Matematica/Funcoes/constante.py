@@ -13,5 +13,5 @@ class Constante(Funcao):
     def __str__(self):
         return str(self.__constante)
 
-    def calcula(self, valor):
+    def __call__(self, valor):
         return self.__constante

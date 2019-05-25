@@ -14,5 +14,5 @@ class Integral(abc.ABC):
     @:return: Um numero que eh o valor da integral
     """
     @abc.abstractmethod
-    def calcular(self, f, xi, xf):
+    def __call__(self, f, xi, xf):
         pass

@@ -9,5 +9,5 @@ class Folha(Funcao):
     def __str__(self):
         return "x"
 
-    def calcula(self, valor):
+    def __call__(self, valor):
         return valor

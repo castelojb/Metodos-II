@@ -10,6 +10,6 @@ class TestSubdivideECalculadora(TestCase):
 
         print(subdivideECalculadora(GaussLegendre(3), Cosseno(Folha()), 0.001, 0, 1))
 
-        subdivideECalculadora(NewtonCotes(4, filosofia=False), Cosseno(Folha()), 0.001, 0, 1000000).mostrarScatterPlot('Iatual')
+        subdivideECalculadora(NewtonCotes(4, filosofia=False), Cosseno(Folha()), 0.001, -1000000, 1000000).mostrarScatterPlot('Iatual')
 
 

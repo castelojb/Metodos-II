@@ -16,8 +16,8 @@ class Seno(Funcao):
     def __str__(self):
         return " sen("+self.subclass+") "
 
-    def calcula(self, valor):
-        return sin(self.subclass.calcula(valor))
+    def __call__(self, valor):
+        return sin(self.subclass(valor))
 
 
 class TangenteH(Funcao):
@@ -28,8 +28,8 @@ class TangenteH(Funcao):
     def __str__(self):
         return " tanh(" + self.subclass + ") "
 
-    def calcula(self, valor):
-        return tanh(self.subclass.calcula(valor))
+    def __call__(self, valor):
+        return tanh(self.subclass(valor))
 
 
 class Cosseno(Funcao):
@@ -40,5 +40,5 @@ class Cosseno(Funcao):
     def __str__(self):
         return " cos(" + self.subclass + ") "
 
-    def calcula(self, valor):
-        return cos(self.subclass.calcula(valor))
+    def __call__(self, valor):
+        return cos(self.subclass(valor))
