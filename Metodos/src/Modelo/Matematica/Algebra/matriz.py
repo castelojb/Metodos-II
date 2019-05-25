@@ -78,8 +78,29 @@ class Matriz:
             raise
 
     def norma(self):
-        if self.matriz.shape[0] == 1 or self.matriz.shape[1] == 1:
+        if (self.matriz.shape[0] == 1 or self.matriz.shape[1] == 1):
             return np.linalg.norm(self.matriz)
         else:
             print("dimensao {} nao eh compativel com vetor".format(self.matriz.shape))
             raise
+
+    def __eq__(self, valor):
+        return (self.matriz == valor.matriz).all()
+
+    def getValoresColuna(self, coluna):
+        mcol = self.matriz[:, coluna]
+        resposta = Matriz(mcol.shape[0], mcol.shape[1])
+        resposta.matriz = mcol
+        return resposta
+
+    def getValoresLinha(self, linha):
+        mlin = self.matriz[linha, :]
+        resposta = Matriz(mlin.shape[0], mlin.shape[1])
+        resposta.matriz = mlin
+        return resposta
+
+    def copy(self):
+        mcopia = self.matriz.copy()
+        resposta = Matriz(mcopia.shape[0], mcopia.shape[1])
+        resposta.matriz = mcopia
+        return resposta
