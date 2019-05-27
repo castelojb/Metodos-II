@@ -1,5 +1,5 @@
 from math import sqrt
-from integral import Integral
+from Metodos.src.Modelo.Matematica.Integrais.integral import Integral
 
 """
 Conjunto de Metodos para calculo de Integrais

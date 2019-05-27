@@ -1,5 +1,5 @@
 from numpy import sum
-from relatorio import RelatorioIntegral
+from Metodos.src.Modelo.Matematica.Integrais.relatorio import RelatorioIntegral
 
 """
 Conjunto de funcoes que vao auxiliar no calculo de uma integral
