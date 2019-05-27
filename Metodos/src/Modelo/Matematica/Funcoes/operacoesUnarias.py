@@ -1,4 +1,4 @@
-from funcao import Funcao
+from Metodos.src.Modelo.Matematica.Funcoes.funcao import Funcao
 
 """
 Conjunto de classes que realizam operacoes unarias nas funcoes
@@ -12,10 +12,10 @@ class Potencia(Funcao):
         self.expoente = expoente
 
     def __str__(self):
-        return " ("+self.expressao+")^"+self.expoente+" "
+        return " ("+self.expressao.__str__()+")^"+self.expoente.__str__()+" "
 
     def __call__(self, valor):
-        return pow(self.expressao(valor), self.expoente)
+        return pow(self.expressao(valor), self.expoente(valor))
 
 
 class Raiz(Funcao):
@@ -24,7 +24,7 @@ class Raiz(Funcao):
         self.expoente = expoente
 
     def __str__(self):
-        return " (" + self.expressao + ")^1/" + self.expoente+" "
+        return " (" + self.expressao.__str__() + ")^1/" + self.expoente.__str__()+" "
 
     def __call__(self, valor):
-        return pow(self.expressao(valor), 1/self.expoente)
+        return pow(self.expressao(valor), 1/self.expoente(valor))

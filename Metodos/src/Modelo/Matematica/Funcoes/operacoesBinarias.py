@@ -1,4 +1,4 @@
-from funcao import Funcao
+from Metodos.src.Modelo.Matematica.Funcoes.funcao import Funcao
 
 """
 Conjunto de classes que realizam operacoes binarias sobre as expressoes
@@ -12,7 +12,7 @@ class Soma(Funcao):
         self.exp2 = exp2
 
     def __str__(self):
-        return " ("+self.exp1+" + "+self.exp2+") "
+        return " ("+self.exp1.__str__()+" + "+self.exp2.__str__()+") "
 
     def __call__(self, valor):
         return self.exp1(valor) + self.exp2(valor)
@@ -25,7 +25,7 @@ class Subtracao(Funcao):
         self.exp2 = exp2
 
     def __str__(self):
-        return " ("+self.exp1+" - "+self.exp2+") "
+        return " ("+self.exp1.__str__()+" - "+self.exp2.__str__()+") "
 
     def __call__(self, valor):
         return self.exp1(valor) - self.exp2(valor)
@@ -38,7 +38,7 @@ class Multiplicacao(Funcao):
         self.exp2 = exp2
 
     def __str__(self):
-        return " ("+self.exp1+" * "+self.exp2+") "
+        return " ("+self.exp1.__str__()+" * "+self.exp2.__str__()+") "
 
     def __call__(self, valor):
         return self.exp1(valor) * self.exp2(valor)
@@ -51,7 +51,7 @@ class Divisao(Funcao):
         self.exp2 = exp2
 
     def __str__(self):
-        return " ("+self.exp1+" / "+self.exp2+") "
+        return " ("+self.exp1.__str__()+" / "+self.exp2.__str__()+") "
 
     def __call__(self, valor):
         return self.exp1(valor) / self.exp2(valor)

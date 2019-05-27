@@ -1,4 +1,4 @@
-from funcao import Funcao
+from Metodos.src.Modelo.Matematica.Funcoes.funcao import Funcao
 
 """
 Classe especial que representa uma constante
